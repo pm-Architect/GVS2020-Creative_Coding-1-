@@ -13,3 +13,5 @@ D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding
 D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\AForge.Video.DirectShow.xml
 D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\GrasshopperBitmap.pdb
 D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.csproj.CopyComplete
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.Properties.Resources.resources
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.csproj.GenerateResource.cache

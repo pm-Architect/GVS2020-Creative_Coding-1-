@@ -13,6 +13,9 @@ namespace Creative_Coding
     {
         Bitmap bitmap;
         VideoCaptureDevice videoSource;
+        NewFrameEventHandler frameHandler;
+        bool computing = false;
+        GrasshopperBitmapGoo gh_bitmap;
 
         /// <summary>
         /// Initializes a new instance of the WebcamComponent class.
@@ -26,13 +29,15 @@ namespace Creative_Coding
 
         public override void AddedToDocument(GH_Document document)
         {
+            frameHandler = new NewFrameEventHandler(video_NewFrame);
             bitmap = null;
             // enumerate video devices
             FilterInfoCollection videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             // create video source
             videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            videoSource.VideoResolution = videoSource.VideoCapabilities[0];
             // set NewFrame event handler
-            videoSource.NewFrame += new NewFrameEventHandler(video_NewFrame);
+            videoSource.NewFrame += frameHandler;
             // start the video source
             videoSource.Start();
             // ...
@@ -63,22 +68,60 @@ namespace Creative_Coding
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            GrasshopperBitmapGoo gh_bitmap = new GrasshopperBitmapGoo(bitmap);
-            DA.SetData(0, gh_bitmap);
+            this.computing = true;
+            if (bitmap != null)
+            {
+                Bitmap b = new Bitmap(bitmap.Width, bitmap.Height);
+                // get new frame
+                b.SetResolution(bitmap.HorizontalResolution, bitmap.VerticalResolution);
+                using (Graphics g = Graphics.FromImage(b))
+                {
+                    //g.Clear(Color.White);
+                    g.DrawImageUnscaled(bitmap, 0, 0);
+                }
+                //Bitmap b = new Bitmap(bitmap);
+                //b = bitmap;
+                gh_bitmap = new GrasshopperBitmapGoo();
+                gh_bitmap.Image = b;
+                //gh_bitmap.Image = b;
+                if (!gh_bitmap.IsValid)
+                {
+                    AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, gh_bitmap.IsValidWhyNot);
+                }
+                else
+                {
+                    DA.SetData(0, gh_bitmap);
+                    //gh_bitmap.Dispose();
+                }
+                //b.Dispose();
+            }
+            else
+            {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Invalid Bitmap");
+            }
+            this.computing = false;
         }
 
         private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            if (bitmap == null)
+            if (!this.computing)
             {
-                bitmap = new Bitmap(eventArgs.Frame);
+                //if (bitmap != null) bitmap.Dispose();
+                //bitmap = null;
+                bitmap = new Bitmap(eventArgs.Frame.Width, eventArgs.Frame.Height);
+                // get new frame
+                bitmap.SetResolution(eventArgs.Frame.HorizontalResolution, eventArgs.Frame.VerticalResolution);
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.Clear(Color.White);
+                    g.DrawImageUnscaled(eventArgs.Frame, 0, 0);
+                }
             }
-            // get new frame
-            bitmap = eventArgs.Frame;
+            //bitmap = eventArgs.Frame;
             //bitmap = new Bitmap(eventArgs.Frame);
             //bitmap = eventArgs.Frame.Clone(new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height), bitmap.PixelFormat);
             // process the frame
-            this.ExpireSolution(true);
+            //this.ExpireSolution(true);
         }
 
         /// <summary>
@@ -96,6 +139,7 @@ namespace Creative_Coding
 
         public override void RemovedFromDocument(GH_Document document)
         {
+            videoSource.NewFrame -= frameHandler;
             videoSource.SignalToStop();
             base.RemovedFromDocument(document);
         }

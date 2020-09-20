@@ -1,0 +1,15 @@
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\Creative_Coding.dll
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\Creative_Coding.pdb
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.csprojAssemblyReference.cache
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.csproj.CoreCompileInputs.cache
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.dll
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.pdb
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\AForge.dll
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\AForge.Video.DirectShow.dll
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\AForge.Video.dll
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\GrasshopperBitmap.dll
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\AForge.xml
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\AForge.Video.xml
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\AForge.Video.DirectShow.xml
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\bin\GrasshopperBitmap.pdb
+D:\OneDrive\Desktop\Workshops\Creative_Coding\VS\Creative_Coding\Creative_Coding\obj\Debug\Creative_Coding.csproj.CopyComplete

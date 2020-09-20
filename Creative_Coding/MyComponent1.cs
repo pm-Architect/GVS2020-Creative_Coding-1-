@@ -65,6 +65,9 @@ namespace Creative_Coding
             //5. Assign the results to variables if not already done so
             //6. Export results through output params
             DA.SetData(0, days);
+
+
+
         }
 
         /// <summary>

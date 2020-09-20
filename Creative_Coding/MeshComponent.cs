@@ -19,6 +19,12 @@ namespace Creative_Coding
         {
         }
 
+        public override void CreateAttributes()
+        {
+            this.Attributes = new CustomAttributes(this);
+            //base.CreateAttributes();
+        }
+
         /// <summary>
         /// Registers all the input parameters for this component.
         /// </summary>
@@ -51,7 +57,6 @@ namespace Creative_Coding
 
             //SOLVE
 
-            DA.SetDataList(0, polylines);
         }
 
         /// <summary>

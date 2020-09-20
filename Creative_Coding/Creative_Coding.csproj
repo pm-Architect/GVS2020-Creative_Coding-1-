@@ -71,6 +71,7 @@
     <Compile Include="ColorComponent.cs" />
     <Compile Include="CreativeCodingComponent.cs" />
     <Compile Include="Creative_CodingInfo.cs" />
+    <Compile Include="CustomParameter.cs" />
     <Compile Include="CustomVoronoiComponent.cs" />
     <Compile Include="MeshComponent.cs" />
     <Compile Include="MyComponent1.cs" />
